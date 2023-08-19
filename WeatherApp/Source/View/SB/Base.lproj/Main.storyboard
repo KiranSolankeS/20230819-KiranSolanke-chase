@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="THN-QH-ASM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WeatherListViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwL-Wn-DlW">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h3L-L5-PA1">
+                                        <rect key="frame" x="178" y="313" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="h3L-L5-PA1" firstAttribute="centerY" secondItem="UwL-Wn-DlW" secondAttribute="centerY" id="N2d-u4-Dfy"/>
+                                    <constraint firstItem="h3L-L5-PA1" firstAttribute="centerX" secondItem="UwL-Wn-DlW" secondAttribute="centerX" id="nMc-ZD-a58"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fLi-f4-Y3D">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by City" translatesAutoresizingMaskIntoConstraints="NO" id="h5o-9S-MCR">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="yEi-jc-3oy"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TOy-U2-BOY">
+                                        <rect key="frame" x="0.0" y="44" width="393" height="619"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UwL-Wn-DlW" secondAttribute="trailing" id="1N1-b8-qHl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fLi-f4-Y3D" secondAttribute="bottom" id="Efs-dp-nYV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UwL-Wn-DlW" secondAttribute="bottom" id="IBd-gm-3h4"/>
+                            <constraint firstItem="fLi-f4-Y3D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QfN-ei-Ffx"/>
+                            <constraint firstItem="UwL-Wn-DlW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sa9-D9-YmM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fLi-f4-Y3D" secondAttribute="trailing" id="gjm-3A-llh"/>
+                            <constraint firstItem="UwL-Wn-DlW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iMn-82-M0O"/>
+                            <constraint firstItem="fLi-f4-Y3D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sda-8D-F2S"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Weather" id="xVi-Um-dST"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="h3L-L5-PA1" id="GaV-AZ-1nj"/>
+                        <outlet property="contentStackView" destination="fLi-f4-Y3D" id="nzK-Vf-URi"/>
+                        <outlet property="loadingView" destination="UwL-Wn-DlW" id="sgK-xy-m5H"/>
+                        <outlet property="searchBar" destination="h5o-9S-MCR" id="gQl-up-gv1"/>
+                        <outlet property="weatherTableView" destination="TOy-U2-BOY" id="83p-4s-brH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.25954198473278" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xeI-lk-cmp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="THN-QH-ASM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Q7i-mC-7uo">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Jxb-FO-hGv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xen-eY-APv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-40.458015267175568" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
